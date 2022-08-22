@@ -1,0 +1,14 @@
+stages:
+  - linting
+
+before_script:
+  - pip install flake8-quotes flake8-import-order flake8-bugbear
+
+linting:
+  tags:
+    - docker
+  allow_failure: false
+  image: pipelinecomponents/flake8:latest
+  stage: linting
+  script:
+    - 'flake8 .'
